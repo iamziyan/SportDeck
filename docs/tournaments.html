@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournaments | Sports Tournament Manager</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⚽</span>
+                <span class="logo-text">Sports Tournament Manager</span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="tournaments.html">Tournaments</a>
+                <a href="schedule.html">Schedule</a>
+                <a href="login.html">Login</a>
+                <a href="register.html" class="btn-register">Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="static-notice">
+            <p><strong>Static preview</strong> — Sample data only. Full app requires PHP + MySQL hosting.</p>
+        </div>
+
+        <section class="tournaments-list">
+            <h1>Tournaments</h1>
+            <div class="card-catalogue">
+                <a href="tournament-detail.html" class="catalogue-card">
+                    <div class="card-status badge-upcoming">Upcoming</div>
+                    <h3>Spring League 2025</h3>
+                    <span class="card-sport">Football</span>
+                    <p class="card-dates">Mar 1 – Mar 31, 2025</p>
+                    <div class="card-meta"><span>👥 8 teams</span></div>
+                </a>
+                <a href="tournament-detail.html" class="catalogue-card">
+                    <div class="card-status badge-ongoing">Ongoing</div>
+                    <h3>Community Cup</h3>
+                    <span class="card-sport">Basketball</span>
+                    <p class="card-dates">Feb 10 – Feb 28, 2025</p>
+                    <div class="card-meta"><span>👥 12 teams</span></div>
+                </a>
+                <a href="tournament-detail.html" class="catalogue-card">
+                    <div class="card-status badge-completed">Completed</div>
+                    <h3>Winter Championship 2024</h3>
+                    <span class="card-sport">Football</span>
+                    <p class="card-dates">Dec 1 – Dec 20, 2024</p>
+                    <div class="card-meta"><span>👥 16 teams</span></div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Sports Tournament Manager. Static preview.</p>
+        </div>
+    </footer>
+</body>
+</html>

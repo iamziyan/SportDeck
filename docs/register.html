@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Sports Tournament Manager</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⚽</span>
+                <span class="logo-text">Sports Tournament Manager</span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="tournaments.html">Tournaments</a>
+                <a href="schedule.html">Schedule</a>
+                <a href="login.html">Login</a>
+                <a href="register.html" class="btn-register">Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="auth-section">
+            <div class="auth-card">
+                <h1>Create Account</h1>
+                <p class="auth-subtitle">Join to manage and participate in tournaments</p>
+                <div class="alert alert-error">
+                    This is a static preview. Registration requires the full PHP + MySQL app.
+                </div>
+                <form class="auth-form" onsubmit="alert('Static preview — deploy PHP version to register.'); return false;">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Choose a username" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="your@email.com" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="full_name">Full Name</label>
+                        <input type="text" id="full_name" placeholder="Your full name" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Minimum 6 characters" disabled>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                </form>
+                <p class="auth-footer">
+                    Already have an account? <a href="login.html">Sign in here</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Sports Tournament Manager. Static preview.</p>
+        </div>
+    </footer>
+</body>
+</html>

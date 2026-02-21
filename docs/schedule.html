@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule | Sports Tournament Manager</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⚽</span>
+                <span class="logo-text">Sports Tournament Manager</span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="tournaments.html">Tournaments</a>
+                <a href="schedule.html">Schedule</a>
+                <a href="login.html">Login</a>
+                <a href="register.html" class="btn-register">Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="static-notice">
+            <p><strong>Static preview</strong> — Sample schedule. Full app requires PHP + MySQL.</p>
+        </div>
+
+        <section class="schedule-module">
+            <h1>Match Schedule</h1>
+            <div class="schedule-timeline">
+                <div class="schedule-day">
+                    <h3 class="schedule-date">Saturday, March 1, 2025</h3>
+                    <div class="schedule-matches">
+                        <div class="schedule-match-item">
+                            <span class="match-time">10:00 AM</span>
+                            <span class="match-fixture">Team Alpha vs Team Beta</span>
+                            <span class="match-venue">@ Main Arena</span>
+                            <span class="badge badge-scheduled">scheduled</span>
+                        </div>
+                        <div class="schedule-match-item">
+                            <span class="match-time">2:00 PM</span>
+                            <span class="match-fixture">Team Gamma vs Team Delta</span>
+                            <span class="match-venue">@ Court B</span>
+                            <span class="badge badge-scheduled">scheduled</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="schedule-day">
+                    <h3 class="schedule-date">Sunday, March 2, 2025</h3>
+                    <div class="schedule-matches">
+                        <div class="schedule-match-item">
+                            <span class="match-time">11:00 AM</span>
+                            <span class="match-fixture">Team Epsilon vs Team Zeta</span>
+                            <span class="match-venue">@ Main Arena</span>
+                            <span class="badge badge-scheduled">scheduled</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Sports Tournament Manager. Static preview.</p>
+        </div>
+    </footer>
+</body>
+</html>

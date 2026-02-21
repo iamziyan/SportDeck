@@ -2,6 +2,25 @@
 
 A full-featured PHP/MySQL web application for managing sports tournaments, teams, matches, results, and schedules.
 
+## Deployment Options
+
+### Option 1: GitHub Pages (Static Preview)
+
+A **static HTML preview** is included for deployment on GitHub Pages. This shows the UI with sample data only — no login, database, or backend.
+
+**To deploy:**
+1. Push this repo to GitHub
+2. Go to **Settings** → **Pages**
+3. Under "Build and deployment", set **Source** to "Deploy from a branch"
+4. Set **Branch** to `main` and **Folder** to `/docs`
+5. Save — your site will be at `https://<username>.github.io/<repo-name>/`
+
+**Static preview includes:** Home, Tournaments, Schedule, Login/Register (forms disabled). Full functionality requires the PHP/MySQL version.
+
+### Option 2: Full App (PHP + MySQL)
+
+Deploy to any host that supports PHP and MySQL (shared hosting, VPS, etc.) for complete functionality.
+
 ## Features
 
 - **Tournaments** - Create, view, and manage tournaments with registration
@@ -46,6 +65,7 @@ Change the password after first login.
 
 ```
 sports/
+├── docs/             # Static HTML for GitHub Pages (index.html, tournaments.html, etc.)
 ├── api/              # API endpoints (e.g., teams JSON)
 ├── assets/
 │   └── css/          # Stylesheets
