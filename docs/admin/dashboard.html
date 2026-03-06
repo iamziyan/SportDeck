@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportDeck – Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="demo-banner">
+  <strong>📋 GitHub Pages Preview</strong> — Logged in as <strong>Admin</strong>. <a href="../login.html">Switch account</a>
+</div>
+
+<nav class="navbar">
+  <div class="container nav-content">
+    <a href="../index.html" class="logo">SportDeck</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Tournaments</a></li>
+      <li><a href="../fixtures.html">Fixtures</a></li>
+      <li><a href="../results.html">Results</a></li>
+      <li><a href="dashboard.html" class="active">Admin Panel</a></li>
+      <li><a href="../index.html" class="btn btn-outline" style="padding:.4rem 1rem;">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="main-content">
+  <div class="admin-layout">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <h3>Admin Panel</h3>
+      <a href="dashboard.html"    class="admin-nav-link active">Dashboard</a>
+      <a href="tournaments.html"  class="admin-nav-link">Tournaments</a>
+      <a href="teams.html"        class="admin-nav-link">Teams</a>
+      <a href="matches.html"      class="admin-nav-link">Matches</a>
+      <a href="results.html"      class="admin-nav-link">Results</a>
+      <a href="players.html"      class="admin-nav-link">Players</a>
+      <a href="users.html"        class="admin-nav-link">Users</a>
+    </aside>
+
+    <!-- Main -->
+    <div class="admin-main">
+      <h2 class="mb-3">Dashboard Overview</h2>
+
+      <div class="grid grid-4 mb-3">
+        <div class="stat-card"><div class="stat-value">6</div><div class="stat-label">Tournaments</div></div>
+        <div class="stat-card"><div class="stat-value">6</div><div class="stat-label">Teams</div></div>
+        <div class="stat-card"><div class="stat-value">6</div><div class="stat-label">Fixtures</div></div>
+        <div class="stat-card"><div class="stat-value">5</div><div class="stat-label">Players</div></div>
+      </div>
+
+      <h3 class="mb-2">Recent Tournaments</h3>
+      <div class="table-wrapper">
+        <table class="table">
+          <thead>
+            <tr><th>Name</th><th>Sport</th><th>Dates</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>City Cricket League 2025</strong></td>
+              <td>Cricket</td>
+              <td>15 Jan – 30 Mar 2025</td>
+              <td><span class="badge badge-green">ongoing</span></td>
+            </tr>
+            <tr>
+              <td><strong>Summer Football Cup</strong></td>
+              <td>Football</td>
+              <td>1 Apr – 15 Jun 2025</td>
+              <td><span class="badge badge-gray">upcoming</span></td>
+            </tr>
+            <tr>
+              <td><strong>Basketball Showdown</strong></td>
+              <td>Basketball</td>
+              <td>1 Nov – 20 Dec 2024</td>
+              <td><span class="badge badge-blue">completed</span></td>
+            </tr>
+            <tr>
+              <td><strong>Badminton Blitz</strong></td>
+              <td>Badminton</td>
+              <td>10 May – 1 Jun 2025</td>
+              <td><span class="badge badge-gray">upcoming</span></td>
+            </tr>
+            <tr>
+              <td><strong>Table Tennis Open</strong></td>
+              <td>Table Tennis</td>
+              <td>1 Feb – 15 Mar 2025</td>
+              <td><span class="badge badge-green">ongoing</span></td>
+            </tr>
+            <tr>
+              <td><strong>Winter Volleyball Series</strong></td>
+              <td>Volleyball</td>
+              <td>1 Oct – 30 Nov 2024</td>
+              <td><span class="badge badge-blue">completed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container text-center">
+    <p>&copy; 2025 SportDeck. Smart Tournament Management.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportDeck Admin – Results</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="demo-banner">
+  <strong>📋 GitHub Pages Preview</strong> — Logged in as <strong>Admin</strong>. <a href="../login.html">Switch account</a>
+</div>
+
+<nav class="navbar">
+  <div class="container nav-content">
+    <a href="../index.html" class="logo">SportDeck</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Tournaments</a></li>
+      <li><a href="../fixtures.html">Fixtures</a></li>
+      <li><a href="../results.html">Results</a></li>
+      <li><a href="dashboard.html">Admin Panel</a></li>
+      <li><a href="../index.html" class="btn btn-outline" style="padding:.4rem 1rem;">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="main-content">
+  <div class="admin-layout">
+
+    <aside class="admin-sidebar">
+      <h3>Admin Panel</h3>
+      <a href="dashboard.html"    class="admin-nav-link">Dashboard</a>
+      <a href="tournaments.html"  class="admin-nav-link">Tournaments</a>
+      <a href="teams.html"        class="admin-nav-link">Teams</a>
+      <a href="matches.html"      class="admin-nav-link">Matches</a>
+      <a href="results.html"      class="admin-nav-link active">Results</a>
+      <a href="players.html"      class="admin-nav-link">Players</a>
+      <a href="users.html"        class="admin-nav-link">Users</a>
+    </aside>
+
+    <div class="admin-main">
+      <div class="flex flex-between mb-3">
+        <h2>Results</h2>
+        <span class="btn btn-primary btn-sm">+ Post Result</span>
+      </div>
+      <div class="table-wrapper">
+        <table class="table">
+          <thead>
+            <tr><th>Date</th><th>Tournament</th><th>Matchup</th><th>Score</th><th>Winner</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="white-space:nowrap;">15 Dec 2024</td>
+              <td>Basketball Showdown</td>
+              <td><strong>Thunder FC</strong> vs <strong>Storm Kings</strong></td>
+              <td><span class="score-box" style="font-size:.85rem;padding:.2rem .75rem;letter-spacing:1px;">78 – 65</span></td>
+              <td><strong>Thunder FC</strong></td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">28 Nov 2024</td>
+              <td>Basketball Showdown</td>
+              <td><strong>Storm Kings</strong> vs <strong>Thunder FC</strong></td>
+              <td><span class="score-box" style="font-size:.85rem;padding:.2rem .75rem;letter-spacing:1px;">55 – 72</span></td>
+              <td><strong>Thunder FC</strong></td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">10 Nov 2024</td>
+              <td>Winter Volleyball Series</td>
+              <td><strong>Wave Riders</strong> vs <strong>Net Blazers</strong></td>
+              <td><span class="score-box" style="font-size:.85rem;padding:.2rem .75rem;letter-spacing:1px;">3 – 1</span></td>
+              <td><strong>Wave Riders</strong></td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">22 Oct 2024</td>
+              <td>Winter Volleyball Series</td>
+              <td><strong>Net Blazers</strong> vs <strong>Wave Riders</strong></td>
+              <td><span class="score-box" style="font-size:.85rem;padding:.2rem .75rem;letter-spacing:1px;">2 – 3</span></td>
+              <td><strong>Wave Riders</strong></td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">20 Feb 2025</td>
+              <td>Table Tennis Open</td>
+              <td><strong>Ping Masters</strong> vs <strong>Spin Aces</strong></td>
+              <td><span class="score-box" style="font-size:.85rem;padding:.2rem .75rem;letter-spacing:1px;">11 – 7</span></td>
+              <td><strong>Ping Masters</strong></td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">5 Feb 2025</td>
+              <td>City Cricket League 2025</td>
+              <td><strong>Red Hawks</strong> vs <strong>Blue Bulls</strong></td>
+              <td><span class="score-box" style="font-size:.85rem;padding:.2rem .75rem;letter-spacing:1px;">182 – 165</span></td>
+              <td><strong>Red Hawks</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container text-center">
+    <p>&copy; 2025 SportDeck. Smart Tournament Management.</p>
+  </div>
+</footer>
+
+</body>
+</html>

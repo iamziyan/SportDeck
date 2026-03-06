@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportDeck Admin – Players</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="demo-banner">
+  <strong>📋 GitHub Pages Preview</strong> — Logged in as <strong>Admin</strong>. <a href="../login.html">Switch account</a>
+</div>
+
+<nav class="navbar">
+  <div class="container nav-content">
+    <a href="../index.html" class="logo">SportDeck</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Tournaments</a></li>
+      <li><a href="../fixtures.html">Fixtures</a></li>
+      <li><a href="../results.html">Results</a></li>
+      <li><a href="dashboard.html">Admin Panel</a></li>
+      <li><a href="../index.html" class="btn btn-outline" style="padding:.4rem 1rem;">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="main-content">
+  <div class="admin-layout">
+
+    <aside class="admin-sidebar">
+      <h3>Admin Panel</h3>
+      <a href="dashboard.html"    class="admin-nav-link">Dashboard</a>
+      <a href="tournaments.html"  class="admin-nav-link">Tournaments</a>
+      <a href="teams.html"        class="admin-nav-link">Teams</a>
+      <a href="matches.html"      class="admin-nav-link">Matches</a>
+      <a href="results.html"      class="admin-nav-link">Results</a>
+      <a href="players.html"      class="admin-nav-link active">Players</a>
+      <a href="users.html"        class="admin-nav-link">Users</a>
+    </aside>
+
+    <div class="admin-main">
+      <div class="flex flex-between mb-3">
+        <h2>Players</h2>
+      </div>
+      <div class="table-wrapper">
+        <table class="table">
+          <thead>
+            <tr><th>#</th><th>Name</th><th>Email</th><th>Team</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="text-muted">1</td><td><strong>Arjun Mehta</strong></td><td class="text-muted">arjun@example.com</td><td>Red Hawks</td></tr>
+            <tr><td class="text-muted">2</td><td><strong>Priya Sharma</strong></td><td class="text-muted">priya@example.com</td><td>Blue Bulls</td></tr>
+            <tr><td class="text-muted">3</td><td><strong>Ravi Kumar</strong></td><td class="text-muted">ravi@example.com</td><td>Green Lions</td></tr>
+            <tr><td class="text-muted">4</td><td><strong>Sneha Patel</strong></td><td class="text-muted">sneha@example.com</td><td>Gold Eagles</td></tr>
+            <tr><td class="text-muted">5</td><td><strong>Dev Nair</strong></td><td class="text-muted">dev@example.com</td><td>Thunder FC</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container text-center">
+    <p>&copy; 2025 SportDeck. Smart Tournament Management.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportDeck – Player Dashboard</title>
+  <meta name="description" content="Your SportDeck player dashboard: upcoming matches, recent results, and stats.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="demo-banner">
+  <strong>📋 GitHub Pages Preview</strong> — Logged in as <strong>Arjun Mehta</strong> (Player). <a href="../login.html">Switch account</a>
+</div>
+
+<nav class="navbar">
+  <div class="container nav-content">
+    <a href="../index.html" class="logo">SportDeck</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Tournaments</a></li>
+      <li><a href="../fixtures.html">Fixtures</a></li>
+      <li><a href="../results.html">Results</a></li>
+      <li><a href="dashboard.html" class="active">My Dashboard</a></li>
+      <li><a href="../index.html" class="btn btn-outline" style="padding:.4rem 1rem;">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="main-content">
+  <div class="flex flex-between mb-3">
+    <div>
+      <h1 class="page-title">Player Dashboard</h1>
+      <p class="text-muted">Hello, <strong>Arjun Mehta</strong> 👋</p>
+    </div>
+    <span class="badge badge-green" style="font-size:.85rem;padding:.4rem .8rem;">Active Player</span>
+  </div>
+
+  <!-- Stats -->
+  <div class="grid grid-3 mb-3">
+    <div class="stat-card">
+      <div class="stat-value">3</div>
+      <div class="stat-label">Tournaments Joined</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">8</div>
+      <div class="stat-label">Matches Played</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Wins</div>
+    </div>
+  </div>
+
+  <!-- Upcoming Matches -->
+  <h2 class="mb-2">Upcoming Matches</h2>
+  <div class="table-wrapper mb-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date &amp; Time</th>
+          <th>Tournament</th>
+          <th>Matchup</th>
+          <th>Venue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="white-space:nowrap;">10 Mar 2025, 02:00 PM</td>
+          <td><span class="badge badge-green">City Cricket League 2025</span></td>
+          <td><strong>Red Hawks</strong> <span class="text-muted" style="margin:0 6px;">vs</span> <strong>Blue Bulls</strong></td>
+          <td class="text-muted">Central Stadium</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap;">18 Mar 2025, 10:00 AM</td>
+          <td><span class="badge badge-green">City Cricket League 2025</span></td>
+          <td><strong>Blue Bulls</strong> <span class="text-muted" style="margin:0 6px;">vs</span> <strong>Red Hawks</strong></td>
+          <td class="text-muted">City Ground</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap;">8 Mar 2025, 11:00 AM</td>
+          <td><span class="badge badge-green">Table Tennis Open</span></td>
+          <td><strong>Ping Masters</strong> <span class="text-muted" style="margin:0 6px;">vs</span> <strong>Spin Aces</strong></td>
+          <td class="text-muted">Indoor Hall A</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Recent Results -->
+  <h2 class="mb-2">Recent Results</h2>
+  <div class="grid grid-2">
+
+    <div class="card text-center">
+      <div class="text-muted mb-1" style="font-size:.8rem;font-weight:600;text-transform:uppercase;">Basketball Showdown</div>
+      <div class="flex flex-between" style="align-items:center;margin-bottom:.75rem;">
+        <strong>Thunder FC</strong>
+        <span class="score-box" style="font-size:.95rem;padding:.3rem 1rem;">78 – 65</span>
+        <strong>Storm Kings</strong>
+      </div>
+      <div style="font-size:.9rem;">Winner: <strong>Thunder FC</strong></div>
+    </div>
+
+    <div class="card text-center">
+      <div class="text-muted mb-1" style="font-size:.8rem;font-weight:600;text-transform:uppercase;">Table Tennis Open</div>
+      <div class="flex flex-between" style="align-items:center;margin-bottom:.75rem;">
+        <strong>Ping Masters</strong>
+        <span class="score-box" style="font-size:.95rem;padding:.3rem 1rem;">11 – 7</span>
+        <strong>Spin Aces</strong>
+      </div>
+      <div style="font-size:.9rem;">Winner: <strong>Ping Masters</strong></div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container text-center">
+    <p>&copy; 2025 SportDeck. Smart Tournament Management.</p>
+  </div>
+</footer>
+
+</body>
+</html>
