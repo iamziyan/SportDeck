@@ -62,7 +62,7 @@ include 'includes/header.php';
         <div class="flex gap-2">
             <div class="form-group" style="flex:1">
                 <label class="form-label">Age</label>
-                <input type="number" name="age" class="form-control" required placeholder="e.g. 21">
+                <input type="number" name="age" class="form-control" required placeholder=" ">
             </div>
             <div class="form-group" style="flex:1">
                 <label class="form-label">Contact Number</label>
