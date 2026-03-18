@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SportDeck — Smart Tournament Management</title>
+  <meta name="description" content="SportDeck is a PHP-based tournament management system for teams, players, and fans. Browse the documentation to get started." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <span class="logo">🏆 SportDeck</span>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="setup.html">Setup</a></li>
+        <li><a href="schema.html">Database</a></li>
+        <li><a href="https://github.com" target="_blank" class="btn btn-outline btn-sm">GitHub ↗</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-badge">Open Source · PHP + MySQL</div>
+      <h1>Smart Tournament Management</h1>
+      <p class="hero-sub">SportDeck is a full-featured, role-based tournament platform for admins, players, and fans. Schedule matches, manage teams, track results — all in one place.</p>
+      <div class="hero-actions">
+        <a href="setup.html" class="btn btn-primary">Get Started →</a>
+        <a href="schema.html" class="btn btn-outline">View Database Schema</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What's Included</h2>
+      <p class="section-sub">Everything you need to run a sports league out of the box.</p>
+      <div class="grid grid-3">
+
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <h3>Role-Based Auth</h3>
+          <p>Separate portals for <strong>Admins</strong> and <strong>Players</strong> with session-based login and password hashing.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏅</div>
+          <h3>Tournament Management</h3>
+          <p>Create multi-sport tournaments with statuses: <em>upcoming</em>, <em>ongoing</em>, and <em>completed</em>. Set player caps.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Team & Player Roster</h3>
+          <p>Manage teams and their rosters. Link registered users to player records within tournaments.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3>Match Scheduling</h3>
+          <p>Schedule matches between any two teams with date, time, and venue. Update status after completion.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Results & Fixtures</h3>
+          <p>Record scores, declare winners, and publicly display fixtures and results — no login required to view.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Self Registration</h3>
+          <p>Players can browse open tournaments and register themselves. Admins can approve or cancel registrations.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Roles Section -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Two Portals, One System</h2>
+      <p class="section-sub">SportDeck serves both administrators and players from the same installation.</p>
+      <div class="grid grid-2">
+
+        <div class="role-card role-admin">
+          <h3>⚙️ Admin Panel</h3>
+          <ul>
+            <li>Dashboard overview</li>
+            <li>Create &amp; manage tournaments</li>
+            <li>Manage teams and rosters</li>
+            <li>Schedule matches</li>
+            <li>Post results and scores</li>
+            <li>Manage all user accounts</li>
+          </ul>
+          <a href="setup.html#admin" class="btn btn-primary btn-sm" style="margin-top:1.25rem;">Admin Docs →</a>
+        </div>
+
+        <div class="role-card role-player">
+          <h3>🏃 Player Portal</h3>
+          <ul>
+            <li>Browse all tournaments</li>
+            <li>Self-register for open events</li>
+            <li>View personal registration history</li>
+            <li>Check fixtures and match results</li>
+            <li>Cancel own registrations</li>
+          </ul>
+          <a href="setup.html#player" class="btn btn-outline btn-sm" style="margin-top:1.25rem;">Player Docs →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Structure -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2 class="section-title">Project Structure</h2>
+      <p class="section-sub">Clean, flat PHP — no framework required.</p>
+      <pre class="code-block">sportdeck/
+├── index.php              ← Public homepage
+├── login.php / register.php / logout.php
+├── fixtures.php           ← Public fixture viewer
+├── results.php            ← Public results viewer
+├── db.sql                 ← Full schema + sample data
+│
+├── admin/                 ← Admin-only pages
+│   ├── dashboard.php
+│   ├── tournaments.php
+│   ├── teams.php
+│   ├── players.php
+│   ├── matches.php
+│   ├── results.php
+│   └── users.php
+│
+├── player/                ← Player portal
+│   ├── dashboard.php
+│   ├── tournaments.php
+│   └── my_registrations.php
+│
+├── includes/              ← Shared components
+│   ├── config.php         ← DB + base_url + helpers
+│   ├── auth.php
+│   ├── header.php
+│   └── footer.php
+│
+└── css/style.css</pre>
+    </div>
+  </section>
+
+  <!-- Quick Start CTA -->
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <h2>Ready to get started?</h2>
+      <p>Follow the setup guide to get SportDeck running on XAMPP or any PHP server in minutes.</p>
+      <a href="setup.html" class="btn btn-primary">View Setup Guide →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>SportDeck &mdash; Built with PHP &amp; MySQL &mdash; <a href="schema.html">Database Docs</a> &middot; <a href="setup.html">Setup Guide</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Database Schema — SportDeck Docs</title>
+  <meta name="description" content="Full database schema reference for SportDeck. Covers all 7 tables with column types and relationships." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="logo">🏆 SportDeck</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="setup.html">Setup</a></li>
+        <li><a href="schema.html" class="active">Database</a></li>
+        <li><a href="https://github.com" target="_blank" class="btn btn-outline btn-sm">GitHub ↗</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="doc-layout container">
+
+    <!-- Sidebar TOC -->
+    <aside class="doc-sidebar">
+      <p class="sidebar-label">Tables</p>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#users">users</a></li>
+        <li><a href="#tournaments">tournaments</a></li>
+        <li><a href="#teams">teams</a></li>
+        <li><a href="#players">players</a></li>
+        <li><a href="#matches">matches</a></li>
+        <li><a href="#results">results</a></li>
+        <li><a href="#registrations">tournament_registrations</a></li>
+        <li><a href="#erd">Relationships</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="doc-main">
+
+      <div class="page-header">
+        <h1>Database Schema</h1>
+        <p class="page-subtitle">SportDeck uses 7 MySQL tables. All foreign keys use <code>ON DELETE CASCADE</code> to keep data consistent.</p>
+      </div>
+
+      <!-- Overview -->
+      <section id="overview" class="doc-section">
+        <h2>Overview</h2>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Table</th>
+                <th>Description</th>
+                <th>Key Relationships</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><a href="#users"><code>users</code></a></td>
+                <td>All accounts (admin &amp; player)</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><a href="#tournaments"><code>tournaments</code></a></td>
+                <td>Tournament listings</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><a href="#teams"><code>teams</code></a></td>
+                <td>Teams per tournament</td>
+                <td>→ tournaments</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><a href="#players"><code>players</code></a></td>
+                <td>Player roster per team</td>
+                <td>→ teams, users</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><a href="#matches"><code>matches</code></a></td>
+                <td>Scheduled matches</td>
+                <td>→ tournaments, teams</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><a href="#results"><code>results</code></a></td>
+                <td>Match outcomes &amp; scores</td>
+                <td>→ matches, teams</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td><a href="#registrations"><code>tournament_registrations</code></a></td>
+                <td>Player self-registrations</td>
+                <td>→ users, tournaments</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- users -->
+      <section id="users" class="doc-section">
+        <h2><code>users</code></h2>
+        <p>Stores all user accounts. Both admins and players share this table, differentiated by the <code>role</code> column.</p>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead><tr><th>Column</th><th>Type</th><th>Nullable</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>INT</td><td>No</td><td>Primary key, auto-increment</td></tr>
+              <tr><td><code>name</code></td><td>VARCHAR(100)</td><td>No</td><td>Full name</td></tr>
+              <tr><td><code>email</code></td><td>VARCHAR(100)</td><td>No</td><td>Unique — used for login</td></tr>
+              <tr><td><code>password_hash</code></td><td>VARCHAR(255)</td><td>No</td><td>PHP <code>password_hash()</code> output</td></tr>
+              <tr><td><code>age</code></td><td>INT</td><td>Yes</td><td>Optional</td></tr>
+              <tr><td><code>contact</code></td><td>VARCHAR(20)</td><td>Yes</td><td>Phone number</td></tr>
+              <tr><td><code>role</code></td><td>ENUM</td><td>No</td><td><code>'player'</code> (default) or <code>'admin'</code></td></tr>
+              <tr><td><code>created_at</code></td><td>TIMESTAMP</td><td>No</td><td>Auto-set on insert</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- tournaments -->
+      <section id="tournaments" class="doc-section">
+        <h2><code>tournaments</code></h2>
+        <p>Each row represents one tournament. The <code>status</code> field drives what actions players and admins can take.</p>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead><tr><th>Column</th><th>Type</th><th>Nullable</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>INT</td><td>No</td><td>Primary key</td></tr>
+              <tr><td><code>name</code></td><td>VARCHAR(200)</td><td>No</td><td>Tournament title</td></tr>
+              <tr><td><code>sport_type</code></td><td>VARCHAR(50)</td><td>No</td><td>e.g. Basketball, Soccer</td></tr>
+              <tr><td><code>start_date</code></td><td>DATE</td><td>No</td><td>—</td></tr>
+              <tr><td><code>end_date</code></td><td>DATE</td><td>No</td><td>—</td></tr>
+              <tr><td><code>status</code></td><td>ENUM</td><td>No</td><td><code>upcoming</code> · <code>ongoing</code> · <code>completed</code></td></tr>
+              <tr><td><code>max_players</code></td><td>INT</td><td>Yes</td><td>NULL = unlimited</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- teams -->
+      <section id="teams" class="doc-section">
+        <h2><code>teams</code></h2>
+        <p>Teams belong to a specific tournament. Deleting a tournament cascades to all its teams.</p>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead><tr><th>Column</th><th>Type</th><th>Nullable</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>INT</td><td>No</td><td>Primary key</td></tr>
+              <tr><td><code>name</code></td><td>VARCHAR(100)</td><td>No</td><td>Team name</td></tr>
+              <tr><td><code>coach_name</code></td><td>VARCHAR(100)</td><td>Yes</td><td>Optional</td></tr>
+              <tr><td><code>tournament_id</code></td><td>INT</td><td>No</td><td>FK → <code>tournaments.id</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- players -->
+      <section id="players" class="doc-section">
+        <h2><code>players</code></h2>
+        <p>Player records are part of team rosters. Optionally linked to a <code>users</code> account via <code>user_id</code>.</p>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead><tr><th>Column</th><th>Type</th><th>Nullable</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>INT</td><td>No</td><td>Primary key</td></tr>
+              <tr><td><code>name</code></td><td>VARCHAR(100)</td><td>No</td><td>Player name</td></tr>
+              <tr><td><code>age</code></td><td>INT</td><td>Yes</td><td>—</td></tr>
+              <tr><td><code>contact</code></td><td>VARCHAR(20)</td><td>Yes</td><td>—</td></tr>
+              <tr><td><code>team_id</code></td><td>INT</td><td>No</td><td>FK → <code>teams.id</code></td></tr>
+              <tr><td><code>user_id</code></td><td>INT</td><td>Yes</td><td>FK → <code>users.id</code> (SET NULL on delete)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- matches -->
+      <section id="matches" class="doc-section">
+        <h2><code>matches</code></h2>
+        <p>Each match is between two teams in the same tournament. A result row is created separately after completion.</p>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead><tr><th>Column</th><th>Type</th><th>Nullable</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>INT</td><td>No</td><td>Primary key</td></tr>
+              <tr><td><code>tournament_id</code></td><td>INT</td><td>No</td><td>FK → <code>tournaments.id</code></td></tr>
+              <tr><td><code>team1_id</code></td><td>INT</td><td>No</td><td>FK → <code>teams.id</code></td></tr>
+              <tr><td><code>team2_id</code></td><td>INT</td><td>No</td><td>FK → <code>teams.id</code></td></tr>
+              <tr><td><code>match_date</code></td><td>DATETIME</td><td>No</td><td>Date and time of match</td></tr>
+              <tr><td><code>venue</code></td><td>VARCHAR(100)</td><td>Yes</td><td>Location name</td></tr>
+              <tr><td><code>status</code></td><td>ENUM</td><td>No</td><td><code>upcoming</code> or <code>completed</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- results -->
+      <section id="results" class="doc-section">
+        <h2><code>results</code></h2>
+        <p>One result per match (enforced via <code>UNIQUE</code> on <code>match_id</code>). <code>winner_team_id</code> is NULL for draws.</p>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead><tr><th>Column</th><th>Type</th><th>Nullable</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>INT</td><td>No</td><td>Primary key</td></tr>
+              <tr><td><code>match_id</code></td><td>INT</td><td>No</td><td>FK → <code>matches.id</code> · UNIQUE</td></tr>
+              <tr><td><code>winner_team_id</code></td><td>INT</td><td>Yes</td><td>NULL = draw · FK → <code>teams.id</code></td></tr>
+              <tr><td><code>score</code></td><td>VARCHAR(50)</td><td>No</td><td>e.g. <code>3-1</code></td></tr>
+              <tr><td><code>created_at</code></td><td>TIMESTAMP</td><td>No</td><td>Auto-set on insert</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- tournament_registrations -->
+      <section id="registrations" class="doc-section">
+        <h2><code>tournament_registrations</code></h2>
+        <p>Tracks player self-registrations. A unique constraint prevents duplicate entries per user + tournament pair.</p>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead><tr><th>Column</th><th>Type</th><th>Nullable</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>INT</td><td>No</td><td>Primary key</td></tr>
+              <tr><td><code>user_id</code></td><td>INT</td><td>No</td><td>FK → <code>users.id</code></td></tr>
+              <tr><td><code>tournament_id</code></td><td>INT</td><td>No</td><td>FK → <code>tournaments.id</code></td></tr>
+              <tr><td><code>registered_at</code></td><td>TIMESTAMP</td><td>No</td><td>Auto-set on insert</td></tr>
+              <tr><td><code>status</code></td><td>ENUM</td><td>No</td><td><code>registered</code> (default) or <code>cancelled</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info-box" style="margin-top:1rem;">
+          ℹ️ A <code>UNIQUE KEY unique_reg (user_id, tournament_id)</code> prevents a player from registering for the same tournament twice.
+        </div>
+      </section>
+
+      <!-- ERD / Relationships -->
+      <section id="erd" class="doc-section">
+        <h2>Relationships</h2>
+        <p>Here's a summary of how all tables relate to each other:</p>
+        <pre class="code-block">users ──────────────────────────────────────────┐
+  │                                             │
+  │ (user_id, optional)                         │ (user_id)
+  ▼                                             ▼
+players ◄──── teams ◄──── tournaments ────► tournament_registrations
+                │               │
+                │               └──────────────────► matches
+                │                                        │
+                └─────────── (team1_id / team2_id) ──────┘
+                                                         │
+                                                         ▼
+                                                      results</pre>
+        <div class="info-box">
+          ℹ️ All foreign keys use <code>ON DELETE CASCADE</code> except <code>players.user_id</code> which uses <code>SET NULL</code>, so deleting a user account doesn't remove their roster entry.
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>SportDeck &mdash; <a href="index.html">Home</a> &middot; <a href="setup.html">Setup Guide</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

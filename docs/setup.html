@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup Guide — SportDeck Docs</title>
+  <meta name="description" content="Step-by-step installation guide for SportDeck. Set up on XAMPP, MAMP, or any PHP/MySQL server." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="logo">🏆 SportDeck</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="setup.html" class="active">Setup</a></li>
+        <li><a href="schema.html">Database</a></li>
+        <li><a href="https://github.com" target="_blank" class="btn btn-outline btn-sm">GitHub ↗</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="doc-layout container">
+
+    <!-- Sidebar TOC -->
+    <aside class="doc-sidebar">
+      <p class="sidebar-label">On this page</p>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#install">Installation</a></li>
+        <li><a href="#database">Database Setup</a></li>
+        <li><a href="#config">Configuration</a></li>
+        <li><a href="#credentials">Default Credentials</a></li>
+        <li><a href="#admin">Admin Panel</a></li>
+        <li><a href="#player">Player Portal</a></li>
+        <li><a href="#tips">Tips & Notes</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="doc-main">
+
+      <div class="page-header">
+        <h1>Setup Guide</h1>
+        <p class="page-subtitle">Get SportDeck running on your local machine or shared hosting in a few steps.</p>
+      </div>
+
+      <!-- Prerequisites -->
+      <section id="prerequisites" class="doc-section">
+        <h2>Prerequisites</h2>
+        <p>Before installing SportDeck, make sure you have the following:</p>
+        <div class="req-grid">
+          <div class="req-item">
+            <span class="req-icon">🐘</span>
+            <div>
+              <strong>PHP 7.4+</strong>
+              <p>With PDO and PDO_MySQL extensions enabled.</p>
+            </div>
+          </div>
+          <div class="req-item">
+            <span class="req-icon">🗄️</span>
+            <div>
+              <strong>MySQL 5.7+ / MariaDB</strong>
+              <p>Any modern MySQL-compatible database server.</p>
+            </div>
+          </div>
+          <div class="req-item">
+            <span class="req-icon">🖥️</span>
+            <div>
+              <strong>Web Server</strong>
+              <p>XAMPP, MAMP, Laragon, or Apache/Nginx.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Installation -->
+      <section id="install" class="doc-section">
+        <h2>Installation</h2>
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Copy the project folder</h3>
+            <p>Place the <code>sportdeck</code> folder inside your web server's root directory:</p>
+            <pre class="code-block">/xampp/htdocs/sportdeck/        ← XAMPP (Windows)
+/Applications/MAMP/htdocs/sportdeck/  ← MAMP (macOS)
+/var/www/html/sportdeck/        ← Apache (Linux)</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Start your web server</h3>
+            <p>Open XAMPP / MAMP and start both <strong>Apache</strong> and <strong>MySQL</strong> services.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Database Setup -->
+      <section id="database" class="doc-section">
+        <h2>Database Setup</h2>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Import the database schema</h3>
+            <p><strong>Option A — phpMyAdmin (recommended):</strong></p>
+            <ol class="ordered-list">
+              <li>Open <a href="http://localhost/phpmyadmin" target="_blank">http://localhost/phpmyadmin</a></li>
+              <li>Click <strong>Import</strong> in the top menu</li>
+              <li>Select <code>sportdeck/db.sql</code> and click <strong>Go</strong></li>
+            </ol>
+            <p style="margin-top:1rem;"><strong>Option B — MySQL CLI:</strong></p>
+            <pre class="code-block">mysql -u root -p &lt; /path/to/sportdeck/db.sql</pre>
+            <div class="info-box">
+              ℹ️ <code>db.sql</code> automatically creates the <code>sportdeck_db</code> database and inserts sample data including admin and player accounts.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Configuration -->
+      <section id="config" class="doc-section">
+        <h2>Configuration</h2>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Edit <code>includes/config.php</code></h3>
+            <p>Open the config file and update your database credentials and base URL:</p>
+            <pre class="code-block"><span class="c-comment">// Database connection</span>
+$db_host = <span class="c-str">'localhost'</span>;
+$db_user = <span class="c-str">'root'</span>;       <span class="c-comment">// your MySQL username</span>
+$db_pass = <span class="c-str">''</span>;           <span class="c-comment">// your MySQL password</span>
+$db_name = <span class="c-str">'sportdeck_db'</span>;
+
+<span class="c-comment">// Base URL — change if installed in a different subfolder</span>
+$base_url = <span class="c-str">'/sportdeck'</span>;</pre>
+            <div class="warning-box">
+              ⚠️ If you rename the project folder (e.g. to <code>sports</code>), update <code>$base_url</code> to match: <code>'/sports'</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h3>Open in your browser</h3>
+            <pre class="code-block">http://localhost/sportdeck/</pre>
+            <p>You should see the SportDeck homepage listing sample tournaments.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Default Credentials -->
+      <section id="credentials" class="doc-section">
+        <h2>Default Credentials</h2>
+        <p>The sample data in <code>db.sql</code> includes the following test accounts (all use password <code>123456</code>):</p>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Access</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-blue">Admin</span></td>
+                <td><code>admin@sportdeck.com</code></td>
+                <td><code>123456</code></td>
+                <td>Full admin panel</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-green">Player</span></td>
+                <td><code>john@example.com</code></td>
+                <td><code>123456</code></td>
+                <td>Player portal</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-green">Player</span></td>
+                <td><code>jane@example.com</code></td>
+                <td><code>123456</code></td>
+                <td>Player portal</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="warning-box" style="margin-top:1rem;">
+          ⚠️ Change all default passwords before deploying to any public server.
+        </div>
+      </section>
+
+      <!-- Admin Panel -->
+      <section id="admin" class="doc-section">
+        <h2>Admin Panel</h2>
+        <p>After logging in as admin, navigate to <code>/sportdeck/admin/dashboard.php</code>. From here you can:</p>
+        <ul class="feature-list">
+          <li>📋 <strong>Dashboard</strong> — Overview of tournaments, matches, users</li>
+          <li>🏆 <strong>Tournaments</strong> — Create, edit, and update tournament status</li>
+          <li>👥 <strong>Teams</strong> — Add teams with coach name, linked to a tournament</li>
+          <li>🏃 <strong>Players</strong> — Add players to team rosters</li>
+          <li>📅 <strong>Matches</strong> — Schedule matches, set venue &amp; time</li>
+          <li>📊 <strong>Results</strong> — Record scores and winners</li>
+          <li>👤 <strong>Users</strong> — View all registered accounts</li>
+        </ul>
+      </section>
+
+      <!-- Player Portal -->
+      <section id="player" class="doc-section">
+        <h2>Player Portal</h2>
+        <p>Logged-in players are redirected to <code>/sportdeck/player/dashboard.php</code>. Players can:</p>
+        <ul class="feature-list">
+          <li>🔍 Browse all available tournaments on the homepage</li>
+          <li>✅ <strong>Register</strong> for open tournaments (with player cap support)</li>
+          <li>❌ <strong>Cancel</strong> their own registrations</li>
+          <li>📋 View their registrations at <code>/player/my_registrations.php</code></li>
+          <li>📅 View fixtures and match results publicly</li>
+        </ul>
+      </section>
+
+      <!-- Tips -->
+      <section id="tips" class="doc-section">
+        <h2>Tips & Notes</h2>
+        <ul class="feature-list">
+          <li>💡 The <strong>public pages</strong> (homepage, fixtures, results) are accessible without login.</li>
+          <li>💡 <code>auth.php</code> guards all admin and player pages — no direct URL access without login.</li>
+          <li>💡 The <code>migrate.php</code> file can be used to re-run schema migrations if needed.</li>
+          <li>💡 All SQL queries use <strong>PDO prepared statements</strong> to prevent SQL injection.</li>
+          <li>💡 Passwords are stored using PHP's <code>password_hash()</code> with <code>PASSWORD_DEFAULT</code>.</li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>SportDeck &mdash; <a href="index.html">Home</a> &middot; <a href="schema.html">Database Schema</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
