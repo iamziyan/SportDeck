@@ -28,6 +28,15 @@
 <div class="card auth-box">
     <h2 class="text-center mb-2">Welcome Back</h2>
     
+    <form method="GET" action="admin/dashboard.html">
+        <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" name="email" class="form-control" required placeholder="you@example.com" value="admin@sportdeck.com">
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" required placeholder="••••••••" value="123456">
+        </div>
         <div class="flex gap-1 mb-2">
             <button type="submit" class="btn btn-primary w-full" onclick="this.form.action='admin/dashboard.html'">Admin Login</button>
             <button type="submit" class="btn btn-outline w-full" onclick="this.form.action='player/dashboard.html'">Player Login</button>
