@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SportDeck - Smart Tournament Management</title>
+    <title>My Registrations - SportDeck</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -40,12 +40,13 @@
                 <h3 style="font-size:1rem; text-transform:uppercase; color:var(--text-muted); margin-bottom:1rem;">
                     Player Menu</h3>
                 <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
-                    <li><a href="dashboard.html"
-                            style="display:block; padding:0.5rem; background:var(--bg-color); border-radius:4px; font-weight:500;">My
-                            Dashboard</a></li>
-                    <li><a href="../index.html" class="text-muted" style="display:block; padding:0.5rem;">Browse
+                    <li><a href="dashboard.html" class="text-muted"
+                            style="display:block; padding:0.5rem;">My Dashboard</a></li>
+                    <li><a href="tournaments.html" class="text-muted" style="display:block; padding:0.5rem;">Browse
                             Tournaments</a></li>
-                    <li><a href="my_registrations.html" class="text-muted" style="display:block; padding:0.5rem;">My Registrations</a></li>
+                    <li><a href="my_registrations.html"
+                            style="display:block; padding:0.5rem; background:var(--bg-color); border-radius:4px; font-weight:500;">My
+                            Registrations</a></li>
                     <li><a href="../fixtures.html" class="text-muted" style="display:block; padding:0.5rem;">All
                             Fixtures</a></li>
                     <li><a href="../results.html" class="text-muted" style="display:block; padding:0.5rem;">All
@@ -59,38 +60,37 @@
 
             <!-- Main Content -->
             <div>
-                <h1 class="page-title mb-1">Player Dashboard</h1>
-                <p class="text-muted mb-3">Welcome, <strong>Demo Player</strong>. Here's your overview.</p>
+                <h1 class="page-title mb-1">My Registrations</h1>
+                <p class="text-muted mb-3">All tournaments you've signed up for.</p>
 
-                <!-- Stats Row -->
-                <div class="grid grid-2 mb-3" style="gap:1rem;">
-                    <div class="card"
-                        style="background: linear-gradient(135deg,#eff6ff,#dbeafe); border-color:#bfdbfe; display:flex; align-items:center; gap:1rem;">
-                        <div style="font-size:2.5rem;">🏆</div>
-                        <div>
-                            <p class="text-muted"
-                                style="font-size:0.8rem; text-transform:uppercase; font-weight:600; margin-bottom:0.2rem;">
-                                Active Registrations</p>
-                            <p style="font-size:2rem; font-weight:700; color:var(--primary); margin:0;">2</p>
-                        </div>
-                    </div>
-                    <div class="card"
-                        style="display:flex; align-items:center; gap:1rem; background:linear-gradient(135deg,#f0fdf4,#dcfce7); border-color:#bbf7d0;">
-                        <div style="font-size:2.5rem;">⚡</div>
-                        <div>
-                            <p class="text-muted"
-                                style="font-size:0.8rem; text-transform:uppercase; font-weight:600; margin-bottom:0.2rem;">
-                                Quick Actions</p>
-                            <a href="../index.html" class="btn btn-primary btn-sm" style="margin-right:0.5rem;">Browse &
-                                Join</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="alert alert-success">
-                    <p>Welcome to SportDeck! You are registered as a player. 🎉</p>
-                    <p class="mt-2 text-sm">You haven't been assigned to a specific team yet. In the meantime, <a
-                            href="../index.html"><strong>browse open tournaments</strong></a> and register for one!</p>
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Tournament</th>
+                                <th>Sport</th>
+                                <th>Status</th>
+                                <th>My Status</th>
+                                <th>Registered On</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Summer Super League 2026</strong></td>
+                                <td>Cricket</td>
+                                <td><span class="badge badge-green">ongoing</span></td>
+                                <td><span class="badge badge-green">✔ Active</span></td>
+                                <td><span class="text-muted" style="font-size:0.82rem;">Jun 10, 2026</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>City Winter Cup</strong></td>
+                                <td>Football</td>
+                                <td><span class="badge badge-gray">upcoming</span></td>
+                                <td><span class="badge badge-green">✔ Active</span></td>
+                                <td><span class="text-muted" style="font-size:0.82rem;">Mar 15, 2026</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

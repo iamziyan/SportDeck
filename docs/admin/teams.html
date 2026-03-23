@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams Management - SportDeck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content text-between">
+            <a href="../index.html" class="logo">SportDeck</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Tournaments</a></li>
+                <li><a href="../fixtures.html">Fixtures</a></li>
+                <li><a href="../results.html">Results</a></li>
+                <li><a href="dashboard.html">Admin Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="grid" style="grid-template-columns: 250px 1fr; align-items: start;">
+            <div class="card" style="padding: 1rem;">
+                <h3 style="font-size:1rem; text-transform:uppercase; color:var(--text-muted); margin-bottom:1rem;">Admin Menu</h3>
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+                    <li><a href="dashboard.html" class="text-muted" style="display:block; padding:0.5rem;">Dashboard Overview</a></li>
+                    <li><a href="../index.html" class="text-muted" style="display:block; padding:0.5rem;">Tournaments</a></li>
+                    <li><a href="teams.html" style="display:block; padding:0.5rem; background:var(--bg-color); border-radius:4px; font-weight:500;">Teams</a></li>
+                    <li><a href="players.html" class="text-muted" style="display:block; padding:0.5rem;">Players</a></li>
+                    <li><a href="../fixtures.html" class="text-muted" style="display:block; padding:0.5rem;">Match Fixtures</a></li>
+                    <li><a href="../results.html" class="text-muted" style="display:block; padding:0.5rem;">Results</a></li>
+                    <li><a href="users.html" class="text-muted" style="display:block; padding:0.5rem;">User Roles</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1 class="page-title mb-2">Teams</h1>
+                <div class="card mb-3">
+                    <h3 class="mb-2">Add New Team</h3>
+                    <form class="grid grid-3" style="align-items: end;">
+                        <input type="text" placeholder="Team Name" class="form-control">
+                        <input type="text" placeholder="Coach Name" class="form-control">
+                        <select class="form-control"><option>Summer Super League</option></select>
+                        <button type="button" class="btn btn-primary w-full">Add Team</button>
+                    </form>
+                </div>
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead><tr><th>Team Name</th><th>Coach</th><th>Tournament</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Warriors XI</strong></td><td>John Doe</td><td>Summer Super League</td></tr>
+                            <tr><td><strong>City Strikers</strong></td><td>Mike Ross</td><td>City Winter Cup</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 SportDeck. Smart Tournament Management.</p>
+        </div>
+    </footer>
+</body>
+</html>
